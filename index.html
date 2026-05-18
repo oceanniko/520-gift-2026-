@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>520 祝福测试版</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ff9a9e; /* 哪怕渐变失效，也有纯正的粉色底色 */
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+        }
+        .scene {
+            display: none; /* 默认隐藏 */
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 80%;
+            max-width: 400px;
+        }
+        .scene.active {
+            display: block; /* 只有带 active 的才显示 */
+        }
+        .img-box {
+            width: 100%;
+            height: 150px;
+            background-color: #ffeaa7; /* 图片未加载时的占位颜色 */
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #d63031;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .btn {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scene active" id="scene1">
+        <h2>❤️ 第一页：见字如面</h2>
+        <div class="img-box">【此处可插入第一张图片】</div>
+        <p>这是第一页的祝福文字，可以任意修改。</p>
+        <button class="btn" onclick="nextScene(2)">点击去第二页 ✨</button>
+    </div>
+
+    <div class="scene" id="scene2">
+        <h2>✨ 第二页：甜蜜回忆</h2>
+        <div class="img-box">【此处可插入第二张图片】</div>
+        <p>这是第二页的祝福文字，写下你们的故事。</p>
+        <button class="btn" onclick="nextScene(3)">点击去第三页 🎈</button>
+    </div>
+
+    <div class="scene" id="scene3">
+        <h2>🌹 第三页：终点告白</h2>
+        <div class="img-box">【此处可插入第三张图片】</div>
+        <p>520快乐！愿岁岁年年都有你相伴。</p>
+        <button class="btn" onclick="alert('收获专属小红心！❤️')">点击有彩蛋</button>
+    </div>
+
+    <script>
+        function nextScene(sceneNumber) {
+            // 隐藏所有场景
+            var scenes = document.querySelectorAll('.scene');
+            for (var i = 0; i < scenes.length; i++) {
+                scenes[i].classList.remove('active');
+            }
+            // 显示当前场景
+            document.getElementById('scene' + sceneNumber).classList.add('active');
+        }
+    </script>
+</body>
+</html>
